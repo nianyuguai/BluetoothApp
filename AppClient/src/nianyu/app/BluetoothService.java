@@ -224,10 +224,12 @@ public class BluetoothService {
             // Get a BluetoothSocket for a connection with the
             // given BluetoothDevice
             try {
-                
-            } catch (IOException e) {
-                Log.e(TAG, "Socket Type: "+ "create() failed", e);
-            }
+				tmp = BluetoothMethod.createRfcommSocket(device.getClass(), device);
+            } catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				Log.e(TAG, "failed to get RfcommSocket UUID");
+			}
             mmSocket = tmp;
         }
 
@@ -305,7 +307,8 @@ public class BluetoothService {
 
             // Keep listening to the InputStream while connected
             while (true) {
-                try {
+               /*
+            	try {
             
 
                     // Send the obtained bytes to the UI Activity
@@ -318,6 +321,7 @@ public class BluetoothService {
                     BluetoothService.this.start();
                     break;
                 }
+                */
             }
         }
 
